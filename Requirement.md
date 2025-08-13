@@ -3,7 +3,27 @@
 
 || Description du système ||
 
-TheRSEQTaskBoard est un outil collaboratif en ligne élaboré pour le RSEQOutaouais, conçu pour faciliter l'octroi et le contrôle des tâches par l'équipe dirigeante, tout en permettant aux collaborateurs de tenir à jour le statut de leur travail.  Conçue avec React et FireBase, cette application gère l'accès basé sur les différents rôles (Gestionnaire et Collaborateur), la gestion des tâches, le suivi de ces dernières tout en offrant un design interactif qui assure une utilisation aisée sur ordinateurs et appareils mobiles.  L'application met l'accent sur la simplicité d'utilisation, une conception modulaire, des mises à jour en direct et un déploiement sans coût.
+TheRSEQTaskBoard est une plateforme collaborative de gestion des tâches développée pour le RSEQ Outaouais, visant à permettre l’attribution structurée, le suivi et la finalisation des travaux entre les gestionnaires de l’organisation et leurs collaborateurs. Le système repose sur un contrôle d’accès basé sur les rôles, comprenant deux types principaux d’utilisateurs : Gestionnaire et Collaborateur. Les deux doivent s’inscrire et s’authentifier pour accéder aux services de la plateforme, en fournissant des informations de base (nom d’utilisateur unique, courriel, mot de passe).
+
+Les gestionnaires peuvent créer des tâches comportant un identifiant unique, un titre, une description, un niveau de priorité, une date d’échéance, une catégorie et des pièces jointes. Les tâches peuvent être subdivisées en sous-tâches et progressent à travers différents états :
+
+Brouillon – Tâche créée mais non encore assignée.
+Assignée – Tâche attribuée à un collaborateur mais non commencée.
+En cours – Tâche en cours de réalisation par le collaborateur.
+Bloquée – Tâche suspendue à cause de dépendances ou de problèmes.
+En révision – Tâche terminée et en attente d’approbation par le gestionnaire.
+Terminée – Tâche validée par le gestionnaire.
+Archivée – Tâche finalisée et conservée à titre de référence.
+
+Les collaborateurs peuvent mettre à jour l’état des tâches qui leur sont attribuées, téléverser des artefacts de travail (nom, type, version) et ajouter des commentaires ou notes de progression. Les gestionnaires peuvent examiner les livrables, demander des corrections, approuver le travail ou réassigner la tâche.
+
+Le système intègre une messagerie interne permettant aux gestionnaires et collaborateurs impliqués dans une même tâche d’échanger des messages pour clarifier les attentes, partager des mises à jour ou donner du feedback. Des notifications en temps réel sont envoyées lors d’événements importants (nouvelle tâche assignée, changement de statut, nouveau message).
+
+Les projets regroupent plusieurs tâches autour d’un objectif commun et possèdent leurs propres métadonnées (identifiant unique, nom, description, date de début, date de fin). Les projets suivent des étapes similaires aux tâches, de Brouillon à Terminé, et leur progression est visualisable via un tableau de bord.
+
+Toutes les données (utilisateurs, projets, tâches, messages, pièces jointes) sont stockées dans un environnement infonuagique basé sur Firebase (Authentication, Firestore Database, Cloud Storage, Cloud Functions). L’interface est conçue pour être responsive et fonctionnelle sur ordinateurs comme sur mobiles, avec mises à jour en temps réel et règles de sécurité adaptées aux rôles.
+
+Un mécanisme de sauvegarde et de restauration garantit la récupération des données en cas de suppression accidentelle ou de panne de service. L’architecture modulaire du système permet l’ajout futur de fonctionnalités, tels que de nouveaux rôles, des modules de rapports ou des intégrations avec des outils externes.
 
 ## 1. Criteres Functionels
 
