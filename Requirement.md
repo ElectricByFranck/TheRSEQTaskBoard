@@ -87,8 +87,27 @@ Un mécanisme de sauvegarde et de restauration garantit la récupération des do
 
 || System Description ||
 
-The TheRSEQTaskBoard App is a collaborative web-based application designed for RSEQOutaouais to help team managers assign and track tasks, while allowing collaborators to update the status of their work. The app must be built with React and Firebase, it must supports role-based access (manager and collaborator), task assignment, status tracking, and a responsive design to ensure usability across platform such as desktop and mobile devices. The app prioritizes usability, modular design, real-time updates, and must be zero-cost deployment.
+TheRSEQTaskBoard is a collaborative task management platform designed for the RSEQ Outaouais to enable structured assignment, monitoring, and completion of work items between organizational managers and collaborators. The system supports role-based access control with two main user types: Gestionnaire (Manager) and Collaborateur (Collaborator). Both must register and authenticate to access platform services, providing basic information (unique username, email, password).
 
+Managers can create tasks that include details such as a unique identifier, title, description, priority level, due date, category, and associated attachments. Tasks can also be broken down into sub-tasks. Each task has an assigned status, progressing through the following stages:
+
+Draft – Task created but not yet assigned.
+Assigned – Task assigned to a collaborator but not yet started.
+In Progress – The assignee is actively working on the task.
+Blocked – Task work cannot proceed due to dependencies or issues.
+Under Review – Task work is completed and awaiting manager approval.
+Completed – Task has been reviewed and approved by the manager.
+Archived – Task is finalized and stored for records.
+
+Collaborators can update the status of their assigned tasks, upload work artefacts (with a name, type, and version), and add comments or progress notes. Managers can review submissions, request modifications, approve work, or reassign tasks.
+
+The platform also includes a built-in messaging system allowing managers and collaborators assigned to the same task to exchange messages for clarifications, updates, and feedback. Notifications are sent in real time for important events such as task assignments, status changes, or new messages.
+
+A project entity groups multiple tasks under a shared objective, with its own metadata (unique identifier, name, description, start date, end date). Projects progress through statuses similar to tasks, from Draft to Completed. Managers can monitor project progress via dashboards summarizing all associated tasks.
+
+All system data—users, tasks, projects, messages, and artefacts—are stored in a cloud-hosted backend built on Firebase services (Authentication, Firestore Database, Cloud Storage, and Cloud Functions). The system supports responsive design for both desktop and mobile interfaces, real-time updates via Firestore, and role-based security rules to ensure that each user can only access permitted data.
+
+A backup and restore mechanism ensures data recovery in case of accidental deletion or service disruption. The hosting infrastructure supports modular scaling, allowing future expansion (e.g., new roles, reporting modules, or integrations with third-party tools).
 
 ## 1. Functional Requirements
 
