@@ -1,0 +1,47 @@
+{
+  "collections": {
+    "users": {
+      "documentId": "userId",
+      "fields": {
+        "displayName": "string",
+        "email": "string",
+        "role": "string",
+        "createdAt": "timestamp",
+        "active": "boolean"
+      }
+    },
+    "tasks": {
+      "documentId": "taskId",
+      "fields": {
+        "title": "string",
+        "description": "string",
+        "status": "string",
+        "priority": "string",
+        "dueDate": "timestamp",
+        "createdBy": "string",
+        "assignedTo": "array",
+        "createdAt": "timestamp",
+        "updatedAt": "timestamp"
+      },
+      "subcollections": {
+        "messages": {
+          "fields": {
+            "authorId": "string",
+            "authorName": "string",
+            "content": "string",
+            "timestamp": "timestamp"
+          }
+        },
+        "artefacts": {
+          "fields": {
+            "name": "string",
+            "type": "string",
+            "url": "string",
+            "uploadedBy": "string",
+            "uploadedAt": "timestamp"
+          }
+        }
+      }
+    }
+  }
+}
